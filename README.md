@@ -25,31 +25,31 @@ Ruby is an "interpreted" programming language which means it can’t run on your
 
 
 #### String class:
-	- `"cat".reverse = "tac"`
-	- `"cat".length = 3`
-	- `"cat" * 3 	= "catcatcat" //concatenation`
-	- `"".lines //splits into lines (based \n)`
-	- `"".bytes //splits into bytes`
-	- `"".chars //splits into chars`
-  - `"The cat is green. The cat is fat.".include?('green') = true`
-  - `"Ruby is a beautiful language".starts_with?('Ruby')`
-  - `"I am a Rubyist".index('R')`
-  - `'This is Mixed CASE'.downcase`
-  - `"ThiS iS A vErY ComPlEx SenTeNcE".swapcase`
-  - `"".split # splits into words`
+* `"cat".reverse = "tac"`
+* `"cat".length = 3`
+* `"cat" * 3 	= "catcatcat" //concatenation`
+* `"".lines //splits into lines (based \n)`
+* `"".bytes //splits into bytes`
+* `"".chars //splits into chars`
+* `"The cat is green. The cat is fat.".include?('green') = true`
+* `"Ruby is a beautiful language".starts_with?('Ruby')`
+* `"I am a Rubyist".index('R')`
+* `'This is Mixed CASE'.downcase`
+* `"ThiS iS A vErY ComPlEx SenTeNcE".swapcase`
+* `"".split # splits into words`
   
-  replace 1st instance of word:
-  ```
+##### replace 1st instance of word:
+```
 	x = " The cat is green. The cat is fat."
 	x['cat'] = 'dog'
 	print x = "the dog is green. The cat is fat" 
-  
-  #alt way:
+
+  # alt way:
   "I should look into your problem when I get time".sub('I','We')
   'RubyMonk Is Pretty Brilliant'.gsub(/[A-Z]/,'0') #Converted all the capital letters to 0
-  ```
+```
   
-  string Interpolation Ex:
+##### string Interpolation Ex:
   ```
     a = 1
     b = 4
@@ -60,14 +60,26 @@ Ruby is an "interpreted" programming language which means it can’t run on your
   
 
 #### General operations:
-	- .to_s //convert to string
-	- .to_i //convert to int
-	- .to_a //convert to array
-	- print x //prints variable as string
-  - In Ruby, ? and : can be used to mean "then" and "else" respectively. Here's the first example on this page re-written using a ternary operator.
-	- methods named with ? at end indicate they return boolean value
-	 print "pre", "event",  "ual", "ism" //menthod with multiple arguments
 
+##### Conversion:
+```
+.to_s //convert to string
+.to_i //convert to int
+.to_a //convert to array
+```
+##### Print to stdout:
+`print x //prints variable as string`
+
+##### Ternary Operator:
+* In Ruby, ? and : can be used to mean "then" and "else" respectively. Here's the first example on this page re-written using a ternary operator.
+
+##### Boolean:
+* Methods named with ? at end indicate they return boolean value
+* false and nil == false
+* 1,0, "", everything else other than false or nil == true
+
+##### Other:
+```ruby
 	 /* Making a method *?
 	 def load_comics( path )
   		comics = {}
@@ -77,12 +89,7 @@ Ruby is an "interpreted" programming language which means it can’t run on your
   		end
   		comics //return comics
 	end
-  
-  In Ruby:
-    - false and nil == false
-    - 1,0, "" == true
-
-  
+```  
 #### Loops:
 
 ```
