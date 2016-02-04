@@ -212,7 +212,7 @@ end
 
 #### Methods
 * methods can take arguments with default values specified if not entered by user
-```ruby
+```rubyexit
 
 def say_hello(name = "Qui-Gon Jinn")
   "Hello, #{name}."
