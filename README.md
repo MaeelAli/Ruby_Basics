@@ -146,8 +146,104 @@ end
 	- books.keys = ["book 1"]
 	- books.values = [:mediorce]
 	- books.values.each { |rate| ratings[rate] += 1 } //counts # of ratings in books and stores in ratings dict
+  
+##### hash structure and operations example:
+```ruby
+restaurant_menu = {
+  "Ramen" => 3,
+  "Dal Makhani" => 4,
+  "Tea" => 2
+  }
+  
+restaurant_menu['Ramen'] # returns 3
+keys = restaurant_menu.keys # returns array of keys of hash ["Ramen", "Dal Makhani", "Coffee"]
+values = restaurant_menu.values #returns array of values of hash [3,4,2]
 
+# Hash syntax # 2:  a flat list of parameters, arranged in pairs. 
+chuck_norris = Hash[:punch, 99, :kick, 98, :stops_bullets_with_hands, true]
 
+# Hash syntax # 3: one parameter: an array containing arrays which are themselves key-value pairs.
+def artax
+  a = [:punch, 0]
+  b = [:kick, 72]
+  c = [:stops_bullets_with_hands, false]
+  key_value_pairs = [a, b, c]
+  Hash[key_value_pairs]
+end
+```
+
+##### Iterating over Hash:
+* You can use the each method to iterate over all the elements in a Hash. However unlike Array#each, when you iterate over a Hash using each, it passes two values to the block: the key and the value of each element.
+
+```ruby
+restaurant_menu = { "Ramen" => 3, "Dal Makhani" => 4, "Coffee" => 2 }
+# increase prices of each item by 10%
+restaurant_menu.each do |item, price|
+  restaurant_menu[item] = price * 1.10
+end 
+```
+
+#### Classes
+##### structure ex:
+```ruby
+class Rectangle
+  def initialize(length, breadth)
+    # @ symbol denotes as being a part of the state of the class, or to use jargon, they are the "instance variables of the class."
+    # This means that every instance of the class Rectangle will have its own unique copies of these variables and is in effect, a distinct rectangle.
+    @length = length     
+    
+    @breadth = breadth
+  end
+
+  def perimeter
+    2 * (@length + @breadth)
+  end
+
+  #write the 'area' method here
+  def area
+    @length * @breadth
+  end
+end
+```
+
+##### Grouping objects
+` "".class  = String`
+` 1.is_a?(Integer) = true
+
+#### Methods
+* methods can take arguments with default values specified if not entered by user
+```ruby
+
+def say_hello(name = "Qui-Gon Jinn")
+  "Hello, #{name}."
+end
+```
+##### Methods are Objects too
+```ruby
+next_method_object = 1.method("next")
+puts next_method_object.call
+```
+
+##### ex using splat and hash options:
+```ruby
+def add(*numbers)
+  numbers.inject(0) { |sum, number| sum + number }  
+end
+
+def subtract(*numbers)
+  current_result = numbers.shift
+  numbers.inject(current_result) { |current_result, number| current_result - number }  
+end
+
+def calculate(*arguments)
+  # if the last argument is a Hash, extract it 
+  # otherwise create an empty Hash
+  options = arguments[-1].is_a?(Hash) ? arguments.pop : {}
+  options[:add] = true if options.empty?
+  return add(*arguments) if options[:add]
+  return subtract(*arguments) if options[:subtract]
+end
+```
 #### File I/O
 	- Dir.entries "/" //root directory list items there
 	- Dir.entries["/*.txt"] //search for text files in entries
