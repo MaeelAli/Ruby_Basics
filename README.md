@@ -25,19 +25,27 @@ Ruby is an "interpreted" programming language which means it can’t run on your
 
 
 #### String class:
-	- "cat".reverse = "tac"
-	- "cat".length 	= 3 
-	- "cat" * 3 	= "catcatcat" //concatenation
-	- "".lines //splits into lines (based \n)
-	- "".bytes //splits into bytes
-	- "".chars //splits into chars
+	- `"cat".reverse = "tac"`
+	- `"cat".length = 3`
+	- `"cat" * 3 	= "catcatcat" //concatenation`
+	- `"".lines //splits into lines (based \n)`
+	- `"".bytes //splits into bytes`
+	- `"".chars //splits into chars`
 
-	- replace 1st instance of word 
+	- replace 1st instance of word:
+  ```
 	x = " The cat is green. The cat is fat."
 	x['cat'] = 'dog'
-	print x = "the dog is green. The cat is fat"
-
-
+	print x = "the dog is green. The cat is fat" 
+  ```
+    - string Interpolation Ex:
+  ```
+  a = 1
+  b = 4
+  puts "The number #{a} is less than #{b}"
+  => The number 1 is less than 4
+ ```
+  
 
 #### General operations:
 	- .to_s //convert to string
