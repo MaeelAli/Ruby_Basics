@@ -245,7 +245,37 @@ def calculate(*arguments)
 end
 ```
 #### File I/O
-	- Dir.entries "/" //root directory list items there
-	- Dir.entries["/*.txt"] //search for text files in entries
-	- print File.read("/comic.txt") //open and read a file
-	- FileUtils.cp('/a.txt', '/home/a.txt' ) //copy file to other directory
+* Dir.entries "/" //root directory list items there
+* Dir.entries["/*.txt"] //search for text files in entries
+* print File.read("/comic.txt") //open and read a file
+* FileUtils.cp('/a.txt', '/home/a.txt' ) //copy file to other directory
+* Whenever you call puts, you're actually calling Kernel.puts (methods in Kernel are accessible everywhere in Ruby), which in turn calls $stdout.puts
+
+
+```
+what_am_i = File.open("clean-slate.txt", "w") do |file|
+  file.puts "Call me Ishmael."
+end
+
+p what_am_i
+
+File.open("clean-slate.txt", "r") {|file| puts file.read }
+
+File.open("disguise", "r") do |f|
+  puts f.read
+end
+
+File.open("disguise", "w") do |f|
+  f.write("Bar")
+end
+
+```
+
+##### IO class  
+ ```
+ # open the file "new-fd" and create a file descriptor:
+fd = IO.sysopen("new-fd", "w")
+
+# create a new I/O stream using the file descriptor for "new-fd":
+p IO.new(fd)
+```
